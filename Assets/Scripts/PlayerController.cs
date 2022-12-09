@@ -103,6 +103,14 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(speed * Time.deltaTime, rb.velocity.y);
         }
 
+        if (Mathf.Abs(rb.velocity.x) <= 0.1f && Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.D) == false)
+        {
+            rb.velocity = new Vector2(0f, rb.velocity.y);
+        }
+
+        //if(transform.eulerAngles.x)
+        //transform.eulerAngles = new Vector3(0, 0, 0);
+
         if (jumping == true)
         {
             rb.velocity = Vector2.up * (jumpSpeed + power);
